@@ -1,4 +1,5 @@
 <h1 align="center">Core ML Conversion Scripts</h1>
+
 Hi folks! Here you'll find shell script files to convert PyTorch CKPT files to Core ML:
 - convert_to_all: convert CKPT → Diffusers; Diffusers → `ORIGINAL`, `ORIGINAL_512x768`, `ORIGINAL_768x512`, and `SPLIT_EINSUM`
 - convert_to_diffusers: convert CKPT → Diffusers only
