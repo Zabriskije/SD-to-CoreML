@@ -1,12 +1,12 @@
 # Core ML Scripts
 
 Hi folks! Here you'll find Shell scripts to convert Stable Diffusion PyTorch CKPT models to Core ML MLMODELC:
-- convert_to_all: convert CKPT → Diffusers; Diffusers → `ORIGINAL`, `ORIGINAL_512x768`, `ORIGINAL_768x512`, and `SPLIT_EINSUM`
-- convert_to_diffusers: convert CKPT → Diffusers only
-- convert_to_original: convert Diffusers → `ORIGINAL` only
-- convert_to_original_512x768: convert Diffusers → `ORIGINAL_512x768` only
-- convert_to_original_768x512: convert Diffusers → `ORIGINAL_768x512` only
-- convert_to_split-einsum: convert Diffusers → `SPLIT_EINSUM` only
+- convert_to_all: converts CKPT → Diffusers; Diffusers → `ORIGINAL`, `ORIGINAL_512x768`, `ORIGINAL_768x512`, and `SPLIT_EINSUM`
+- convert_to_diffusers: converts CKPT → Diffusers only
+- convert_to_original: converts Diffusers → `ORIGINAL` only
+- convert_to_original_512x768: converts Diffusers → `ORIGINAL_512x768` only
+- convert_to_original_768x512: converts Diffusers → `ORIGINAL_768x512` only
+- convert_to_split-einsum: converts Diffusers → `SPLIT_EINSUM` only
 
 ## Usage
 
