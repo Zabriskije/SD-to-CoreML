@@ -29,6 +29,8 @@ These scripts assume you have Homebrew, Wget, Xcode, and Miniconda (with the ml-
 6. `pip install -e .`
 7. `pip install omegaconf`
 
+After that, you just need to download [this Python script](https://github.com/huggingface/diffusers/raw/main/scripts/convert_original_stable_diffusion_to_diffusers.py) and place it in the same folder as the CKPT.
+
 More info about other possibilities [here](https://github.com/godly-devotion/MochiDiffusion/wiki/How-to-convert-CKPT-or-SafeTensors-files-to-Core-ML).
 
 ## Troubleshooting
