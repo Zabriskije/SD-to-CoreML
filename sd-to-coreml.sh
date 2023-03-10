@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change your conda path here
-source /Users/YOUR_USERNAME/miniconda3/miniconda3/etc/profile.d/conda.sh
+source /Users/YOUR_USERNAME/miniconda3/etc/profile.d/conda.sh
 conda activate coreml_stable_diffusion
 
 # Change your model path here
