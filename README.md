@@ -18,7 +18,7 @@ The neatest script for converting Stable Diffusion models to Core ML.
 Before running: be sure to meet the [requirements](#requirements), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder path that needs to be adjusted. You'll find both at the start of the script:
 
 <p align="center">
-<img width="800" src="https://user-images.githubusercontent.com/101254295/224436340-c5c4b816-c1fe-4a33-86c4-e88b690b920a.png">
+<img width="800" src="https://user-images.githubusercontent.com/101254295/224440093-df008085-c2eb-4db0-b348-917e7350196c.png">
 </p>
 
 When done, the script is ready for conversion.
