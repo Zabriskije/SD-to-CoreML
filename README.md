@@ -21,7 +21,7 @@ Before running: be sure to meet the [requirements](#requirements), place the scr
 <img width="800" src="https://user-images.githubusercontent.com/101254295/224440093-df008085-c2eb-4db0-b348-917e7350196c.png">
 </p>
 
-When done, the script is ready for conversion.
+When done, the script is ready to be used.
 
 You can run it by dragging it into the Terminal app and then pressing Enter, or set it to (always) open with the Terminal App: right-click on the file → "Get Info" → "Open with" → "Terminal".
 
