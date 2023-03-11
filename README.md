@@ -19,9 +19,7 @@
 
 Before running: be sure to meet the [requirements](#requirements), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder path that needs to be adjusted. You'll find both at the start of the script:
 
-<p align="center">
-<img width="800" src="https://user-images.githubusercontent.com/101254295/224440093-df008085-c2eb-4db0-b348-917e7350196c.png">
-</p>
+<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224440093-df008085-c2eb-4db0-b348-917e7350196c.png"></p>
 
 When done, the script is ready to be used.
 
@@ -29,9 +27,7 @@ You can run it by dragging it into the Terminal app and then pressing Enter, or 
 
 Once started, it will prompt you to specify your model's name. Be precise since it will automatically use that name for all the conversion processes, including folder naming schemes and file cleaning.
 
-<p align="center">
-<img width="800" src="https://user-images.githubusercontent.com/101254295/224436382-40eb248d-d9c5-4f4e-976a-7dc076d66422.png"></center>
-</p>
+<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224436382-40eb248d-d9c5-4f4e-976a-7dc076d66422.png"></center></p>
 
 When set, the script will proceed to display all the possible conversion options:
 
@@ -48,21 +44,11 @@ When set, the script will proceed to display all the possible conversion options
 
 The `CKPT → All` and `SafeTensors → All` options will convert your model to `Diffusers`, then `Diffusers` to `ORIGINAL`, `ORIGINAL 512x768`, `ORIGINAL 768x512`, and `SPLIT_EINSUM` — all in one go.
 
-<p align="center">
-<img width="800" src="https://user-images.githubusercontent.com/101254295/224436409-2be81993-2608-4bbc-8121-31acb34c40da.png">
-</p>
+<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224436409-2be81993-2608-4bbc-8121-31acb34c40da.png"></p>
 
 All the steps will show a success or failure log message, including a visual and auditory system notification. In case you don't like the latter, you can change its behavior by going to "System Settings..." → "Notifications" → "Script Editor"; or by deleting all the lines in the script starting with `osascript`.
 
-<p align="center">
-<img width="800" src="https://user-images.githubusercontent.com/101254295/224436431-0cf3835d-eef3-495f-8b82-fe0926b47a9f.png">
-</p>
-<p align="center">
-<img width="400" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png">
-</p>
-<p align="center">
-<img width="400" src="https://user-images.githubusercontent.com/101254295/224436481-9cb585b7-b539-4c47-b5d0-340710d27f12.png">
-</p>
+<p align="center"><img width="300" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png"><br><img width="800" src="https://user-images.githubusercontent.com/101254295/224436431-0cf3835d-eef3-495f-8b82-fe0926b47a9f.png"></p>
 
 ## Requirements
 
