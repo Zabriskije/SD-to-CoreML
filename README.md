@@ -2,8 +2,6 @@
 
 <p align="center">The neatest script for converting Stable Diffusion models to Core ML.</p>
 
-<br>
-
 ## Features
 
 - Works with both CKPT and SafeTensors file format
