@@ -1,6 +1,8 @@
-# SD to Core ML
+<h1 align="center">SD to Core ML</h1>
 
-The neatest script for converting Stable Diffusion models to Core ML.
+<p align="center">The neatest script for converting Stable Diffusion models to Core ML.</p>
+
+<br>
 
 ## Features
 
