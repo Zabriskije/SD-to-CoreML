@@ -52,7 +52,7 @@ All the steps will show a success or failure log message, including a visual and
 
 ## Requirements
 
-The script assumes you have Homebrew, Wget, Xcode, and Miniconda (with the ml-stable-diffusion env) already installed. If not, please proceed as follows:
+The script assumes you have Homebrew, Wget, Xcode, and Miniconda (with the `ml-stable-diffusion` environment) already installed. If not, please proceed as follows:
 
 1. Install Homebrew and remember to follow the instructions under "Next steps"
    
@@ -117,7 +117,7 @@ The script assumes you have Homebrew, Wget, Xcode, and Miniconda (with the ml-st
   
   Every time you see a similar message, you can solve it by installing what is requested via `pip install <name>`
   
-- `zsh: killed python`: your Mac has run out of memory. Close some memory-hungry applications you may have open and do the process again. Still not working? Reboot. Still not working? Well, `split-einsum` conversions tend to be the more demanding, so while converting, I often close all the other apps and leave my MacBook melting alone
+- `zsh: killed python`: your Mac has run out of memory. Close some memory-hungry applications you may have open and do the process again. Still not working? Reboot. Still not working? Use `nice -n 10` before running the script. Still not working? Well, `SPLIT_EINSUM` conversions tend to be the more demanding, so while converting, I often close all the other apps and leave my MacBook melting alone
 
 #### Terminal warnings
 
