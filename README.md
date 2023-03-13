@@ -2,7 +2,7 @@
 
 <p align="center">The neatest script for converting Stable Diffusion models to Core ML</p>
 
-<p align="center"><a href="#features">Features</a> • <a href="#usage">Usage</a> • <a href="#requirements">Requirements</a> • <a href="#troubleshooting">Troubleshooting</a></p>
+<p align="center"><a href="#features">Features</a> • <a href="#usage">Usage</a> • <a href="#prerequisites">Prerequisites</a> • <a href="#troubleshooting">Troubleshooting</a></p>
 
 ## Features
 
@@ -12,12 +12,13 @@
 - Resume your conversions at any time by entering the model name
 - Automatically delete all unnecessary files once the conversion is done
 - When converting to `All`, ask to zip folders (useful for sharing purposes)
+- If you choose to zip, ask to delete model and its folders
 - Super simple, just set your model name and choose an option
 - Some easter eggs 👀
 
 ## Usage
 
-Before running: be sure to meet the [requirements](#requirements), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder path that needs to be adjusted. You'll find both at the start of the script:
+Before running: be sure to meet the [prerequisites](#prerequisites), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder path that needs to be adjusted. You'll find both at the start of the script:
 
 <p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224440093-df008085-c2eb-4db0-b348-917e7350196c.png"></p>
 
@@ -50,7 +51,7 @@ All the steps will show a success or failure log message, including a visual and
 
 <br><p align="center"><img width="300" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png"><br><img width="800" src="https://user-images.githubusercontent.com/101254295/224586024-8d7f63fd-d3b1-4485-b960-54df85b629ca.png"></p>
 
-## Requirements
+## Prerequisites
 
 The script assumes you have Homebrew, Wget, Xcode, and Miniconda (with the `ml-stable-diffusion` environment) already installed. If not, please proceed as follows:
 
