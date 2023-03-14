@@ -91,7 +91,7 @@ while true; do
                mv ${mname}_original deleting...
                mv deleting.../Resources deleting.../${mname}_original
                mv deleting.../${mname}_original .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -116,7 +116,7 @@ while true; do
                mv ${mname}_original_512x768 deleting...
                mv deleting.../Resources deleting.../${mname}_original_512x768
                mv deleting.../${mname}_original_512x768 .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -141,7 +141,7 @@ while true; do
                mv ${mname}_original_768x512 deleting...
                mv deleting.../Resources deleting.../${mname}_original_768x512
                mv deleting.../${mname}_original_768x512 .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -166,7 +166,7 @@ while true; do
                mv ${mname}_split-einsum deleting...
                mv deleting.../Resources deleting.../${mname}_split-einsum
                mv deleting.../${mname}_split-einsum .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -326,7 +326,7 @@ while true; do
                mv ${mname}_original deleting...
                mv deleting.../Resources deleting.../${mname}_original
                mv deleting.../${mname}_original .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -351,7 +351,7 @@ while true; do
                mv ${mname}_original_512x768 deleting...
                mv deleting.../Resources deleting.../${mname}_original_512x768
                mv deleting.../${mname}_original_512x768 .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -376,7 +376,7 @@ while true; do
                mv ${mname}_original_768x512 deleting...
                mv deleting.../Resources deleting.../${mname}_original_768x512
                mv deleting.../${mname}_original_768x512 .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -401,7 +401,7 @@ while true; do
                mv ${mname}_split-einsum deleting...
                mv deleting.../Resources deleting.../${mname}_split-einsum
                mv deleting.../${mname}_split-einsum .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -536,7 +536,7 @@ while true; do
                mv ${mname}_original deleting...
                mv deleting.../Resources deleting.../${mname}_original
                mv deleting.../${mname}_original .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -569,7 +569,7 @@ while true; do
                mv ${mname}_original_512x768 deleting...
                mv deleting.../Resources deleting.../${mname}_original_512x768
                mv deleting.../${mname}_original_512x768 .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -602,7 +602,7 @@ while true; do
                mv ${mname}_original_768x512 deleting...
                mv deleting.../Resources deleting.../${mname}_original_768x512
                mv deleting.../${mname}_original_768x512 .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
@@ -635,7 +635,7 @@ while true; do
                mv ${mname}_split-einsum deleting...
                mv deleting.../Resources deleting.../${mname}_split-einsum
                mv deleting.../${mname}_split-einsum .
-               mv deleting... ~/.Trash
+               rm -rf deleting...
                
                time=$SECONDS
                
