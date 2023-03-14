@@ -102,6 +102,10 @@ The script assumes you have Homebrew, Wget, Xcode, and Miniconda (with the `ml-s
 
 ## Troubleshooting
 
+#### File
+
+- `sd-to-coreml.sh: permission denied`: type `chmod -x `, drag the script into the Terminal window, and then press <kbd>Enter ⏎</kbd>
+
 #### Miniconda
 
 - `This package is incompatible with this version of macOS`: after the "Software Licence Agreement" step, click on "Change Install Location..." and select "Install for me only"
