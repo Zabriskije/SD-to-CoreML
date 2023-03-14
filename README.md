@@ -12,7 +12,7 @@
 - Resume your conversions at any time by entering the same model name
 - Automatically deletes all unnecessary files once the conversion is done
 - When converting to `All`, asks whether to zip folders (useful for sharing purposes)
-- If the previous is positive, ask whether to delete the model and its folders
+- If zipped, asks whether to delete the model and its folders
 - Super simple, just set your model name and choose an option
 - Some easter eggs 👀
 
