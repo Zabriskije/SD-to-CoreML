@@ -91,7 +91,7 @@ while true; do
                mv ${mname}_original deleting...
                mv deleting.../Resources deleting.../${mname}_original
                mv deleting.../${mname}_original .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -116,7 +116,7 @@ while true; do
                mv ${mname}_original_512x768 deleting...
                mv deleting.../Resources deleting.../${mname}_original_512x768
                mv deleting.../${mname}_original_512x768 .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -141,7 +141,7 @@ while true; do
                mv ${mname}_original_768x512 deleting...
                mv deleting.../Resources deleting.../${mname}_original_768x512
                mv deleting.../${mname}_original_768x512 .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -166,7 +166,7 @@ while true; do
                mv ${mname}_split-einsum deleting...
                mv deleting.../Resources deleting.../${mname}_split-einsum
                mv deleting.../${mname}_split-einsum .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -217,12 +217,12 @@ while true; do
                                  done ) &
                                  printf "\e[?25l"
                                  SPIN_PID=$!
-                                 rm -rf ${mname}.ckpt
-                                 rm -rf ${mname}_diffusers
-                                 rm -rf ${mname}_original
-                                 rm -rf ${mname}_original_512x768
-                                 rm -rf ${mname}_original_768x512
-                                 rm -rf ${mname}_split-einsum
+                                 mv ${mname}.ckpt ~/.Trash
+                                 mv ${mname}_diffusers ~/.Trash
+                                 mv ${mname}_original ~/.Trash
+                                 mv ${mname}_original_512x768 ~/.Trash
+                                 mv ${mname}_original_768x512 ~/.Trash
+                                 mv ${mname}_split-einsum ~/.Trash
                                  kill $SPIN_PID
                                  wait $SPIN_PID 2> /dev/null
                                  printf "\e[?25h"
@@ -326,7 +326,7 @@ while true; do
                mv ${mname}_original deleting...
                mv deleting.../Resources deleting.../${mname}_original
                mv deleting.../${mname}_original .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -351,7 +351,7 @@ while true; do
                mv ${mname}_original_512x768 deleting...
                mv deleting.../Resources deleting.../${mname}_original_512x768
                mv deleting.../${mname}_original_512x768 .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -376,7 +376,7 @@ while true; do
                mv ${mname}_original_768x512 deleting...
                mv deleting.../Resources deleting.../${mname}_original_768x512
                mv deleting.../${mname}_original_768x512 .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -401,7 +401,7 @@ while true; do
                mv ${mname}_split-einsum deleting...
                mv deleting.../Resources deleting.../${mname}_split-einsum
                mv deleting.../${mname}_split-einsum .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -452,12 +452,12 @@ while true; do
                                  done ) &
                                  printf "\e[?25l"
                                  SPIN_PID=$!
-                                 rm -rf ${mname}.ckpt
-                                 rm -rf ${mname}_diffusers
-                                 rm -rf ${mname}_original
-                                 rm -rf ${mname}_original_512x768
-                                 rm -rf ${mname}_original_768x512
-                                 rm -rf ${mname}_split-einsum
+                                 mv ${mname}.ckpt ~/.Trash
+                                 mv ${mname}_diffusers ~/.Trash
+                                 mv ${mname}_original ~/.Trash
+                                 mv ${mname}_original_512x768 ~/.Trash
+                                 mv ${mname}_original_768x512 ~/.Trash
+                                 mv ${mname}_split-einsum ~/.Trash
                                  kill $SPIN_PID
                                  wait $SPIN_PID 2> /dev/null
                                  printf "\e[?25h"
@@ -536,7 +536,7 @@ while true; do
                mv ${mname}_original deleting...
                mv deleting.../Resources deleting.../${mname}_original
                mv deleting.../${mname}_original .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -569,7 +569,7 @@ while true; do
                mv ${mname}_original_512x768 deleting...
                mv deleting.../Resources deleting.../${mname}_original_512x768
                mv deleting.../${mname}_original_512x768 .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -602,7 +602,7 @@ while true; do
                mv ${mname}_original_768x512 deleting...
                mv deleting.../Resources deleting.../${mname}_original_768x512
                mv deleting.../${mname}_original_768x512 .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
@@ -635,7 +635,7 @@ while true; do
                mv ${mname}_split-einsum deleting...
                mv deleting.../Resources deleting.../${mname}_split-einsum
                mv deleting.../${mname}_split-einsum .
-               rm -rf deleting...
+               mv deleting... ~/.Trash
                
                time=$SECONDS
                
