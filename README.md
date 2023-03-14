@@ -9,7 +9,7 @@
 - Works with both CKPT and SafeTensors file format
 - Display a log message and a system notification with status updates
 - If a conversion fails, will attempt it every 30s until it's successful
-- Resume your conversions at any time by entering the model name
+- Resume your conversions at any time by entering the same model name
 - Automatically delete all unnecessary files once the conversion is done
 - When converting to `All`, ask to zip folders (useful for sharing purposes)
 - If you choose to zip, ask to delete model and its folders
@@ -20,13 +20,13 @@
 
 Before running: be sure to meet the [prerequisites](#prerequisites), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder path that needs to be adjusted. You'll find both at the start of the script:
 
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224440093-df008085-c2eb-4db0-b348-917e7350196c.png"></p>
+<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224867049-577eef7a-efa5-42a0-ab4b-b6e63c65bad0.png"></p>
 
 When done, the script is ready to be used.
 
 You can run it by dragging it into the Terminal app and then pressing Enter, or set it to (always) open with the Terminal App: right-click on the file → "Get Info" → "Open with" → "Terminal".
 
-Once started, it will prompt you to specify your model's name. Be precise since it will automatically use that name for all the conversion processes, including folder naming schemes and file cleaning.
+Once started, it will prompt you to specify your model's name:
 
 <p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224436382-40eb248d-d9c5-4f4e-976a-7dc076d66422.png"></center></p>
 
@@ -40,16 +40,15 @@ When set, the script will proceed to display all the possible conversion options
 6. Diffusers → ORIGINAL 512x768
 7. Diffusers → ORIGINAL 768x512
 8. Diffusers → SPLIT_EINSUM
-9. Credits
-10. Quit
+9. Change model name
 
 The `CKPT → All` and `SafeTensors → All` options will convert your model to `Diffusers`, then `Diffusers` to `ORIGINAL`, `ORIGINAL 512x768`, `ORIGINAL 768x512`, and `SPLIT_EINSUM` — all in one go.
 
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224436409-2be81993-2608-4bbc-8121-31acb34c40da.png"></p>
+<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224867327-f77ced52-0f83-4913-bd1f-01fc28811105.png"></p>
 
 All the steps will show a success or failure log message, including a visual and auditory system notification. In case you don't like the latter, you can change its behavior by going to "System Settings..." → "Notifications" → "Script Editor"; or by deleting all the lines in the script starting with `osascript`.
 
-<br><p align="center"><img width="300" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png"><br><img width="800" src="https://user-images.githubusercontent.com/101254295/224586024-8d7f63fd-d3b1-4485-b960-54df85b629ca.png"></p>
+<br><p align="center"><img width="350" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png"><br><img width="800" src="https://user-images.githubusercontent.com/101254295/224867388-497a0fe1-2c3c-4fb0-a712-8aa79b30323e.png"></p>
 
 ## Prerequisites
 
