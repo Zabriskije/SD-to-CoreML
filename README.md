@@ -7,12 +7,12 @@
 ## Features
 
 - Works with both CKPT and SafeTensors file format
-- Display a log message and a system notification with status updates
-- If a conversion fails, will attempt it every 30s until it's successful
+- Displays a log message and a system notification with status updates
+- If a conversion fails, it will attempt it every 30s until it's successful
 - Resume your conversions at any time by entering the same model name
-- Automatically delete all unnecessary files once the conversion is done
-- When converting to `All`, ask to zip folders (useful for sharing purposes)
-- If you choose to zip, ask to delete model and its folders
+- Automatically deletes all unnecessary files once the conversion is done
+- When converting to `All`, asks whether to zip folders (useful for sharing purposes)
+- If the previous is positive, ask whether to delete the model and its folders
 - Super simple, just set your model name and choose an option
 - Some easter eggs 👀
 
