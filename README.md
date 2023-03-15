@@ -48,7 +48,9 @@ The `CKPT → All` and `SafeTensors → All` options will convert your model to 
 
 All the steps will show a success or failure log message, including a visual and auditory system notification. In case you don't like the latter, you can change its behavior by going to "System Settings..." → "Notifications" → "Script Editor"; or by deleting all the lines in the script starting with `osascript`.
 
-<br><p align="center"><img width="350" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png"><br><img width="800" src="https://user-images.githubusercontent.com/101254295/224867388-497a0fe1-2c3c-4fb0-a712-8aa79b30323e.png"></p>
+<br>
+<p align="center"><img width="350" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png"></p>
+<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224867388-497a0fe1-2c3c-4fb0-a712-8aa79b30323e.png"></p>
 
 ## Prerequisites
 
