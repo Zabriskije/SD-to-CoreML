@@ -7,6 +7,8 @@ conda activate coreml_stable_diffusion
 # Change your model path here
 cd /Users/YOUR_USERNAME/YOUR_PATH
 
+# For updates and troubleshooting: github.com/Zabriskije/SD-to-CoreML
+
 ###############################################################################
 ##                                                                           ##
 ##                                 Variables                                 ##
@@ -64,7 +66,7 @@ while true; do
                   python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path ${mname}.ckpt --device cpu --extract_ema --dump_path ${mname}_diffusers
                do
                   osascript -e 'display notification "[1/5] Conversion to Diffusers failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
-                  echo -e "$\n{R}[1/5] Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
+                  echo -e "\n${R}[1/5] Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
                   sleep 30
                done
                
@@ -299,7 +301,7 @@ while true; do
                   python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path ${mname}.safetensors --from_safetensors --device cpu --extract_ema --dump_path ${mname}_diffusers
                do
                   osascript -e 'display notification "[1/5] Conversion to Diffusers failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
-                  echo -e "$\n{R}[1/5] Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
+                  echo -e "\n${R}[1/5] Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
                   sleep 30
                done
                
@@ -670,21 +672,3 @@ while true; do
       done
    done
 done
-
-#
-#            $$$\
-#            $$$ |
-#            $$$ |             $$$$$$$$\        $$\               $$\         $$\      $$\$$\
-#       $$$$$   $$$$$\         \____$$  |       $$ |              \__|        $$ |     \__\__|
-#    $$$  ___$$$  ___$$$\          $$  /$$$$$$\ $$$$$$$\  $$$$$$\ $$\ $$$$$$$\$$ |  $$\$$\$$\ $$$$$$\
-#    $$$ |   $$$ |   $$$ |        $$  / \____$$\$$  __$$\$$  __$$\$$ $$  _____$$ | $$  $$ $$ $$  __$$\
-#    $$$ |   $$$ |   $$$ |       $$  /  $$$$$$$ $$ |  $$ $$ |  \__$$ \$$$$$$\ $$$$$$  /$$ $$ $$$$$$$$ |
-#    $$$ |   $$$ |   $$$ |      $$  /  $$  __$$ $$ |  $$ $$ |     $$ |\____$$\$$  _$$< $$ $$ $$   ____|
-#    \__$$$$$   $$$$$  __|     $$$$$$$$\$$$$$$$ $$$$$$$  $$ |     $$ $$$$$$$  $$ | \$$\$$ $$ \$$$$$$$\
-#       \____$$$  ____|        \________\_______\_______/\__|     \__\_______/\__|  \__\__$$ |\_______|
-#            $$$ |                                                                  $$\   $$ |
-#            $$$ |                                                                  \$$$$$$  |
-#            \___|                                                                   \______/
-#
-#
-# github.com/Zabriskije
