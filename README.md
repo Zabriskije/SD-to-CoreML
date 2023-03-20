@@ -20,7 +20,7 @@
 
 Before running: be sure to meet the [prerequisites](#prerequisites), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder path that needs to be adjusted. You'll find both at the start of the script:
 
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224867049-577eef7a-efa5-42a0-ab4b-b6e63c65bad0.png"></p>
+<p align="center"><img width="800" src="images/1-script-paths.png"></p>
 
 When done, the script is ready to be used.
 
@@ -28,7 +28,7 @@ You can run it by dragging it into the Terminal app and then pressing Enter, or 
 
 Once started, it will prompt you to specify your model's name:
 
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224436382-40eb248d-d9c5-4f4e-976a-7dc076d66422.png"></center></p>
+<p align="center"><img width="800" src="images/2-model-prompt.png"></center></p>
 
 When set, the script will proceed to display all the possible conversion options:
 
@@ -44,13 +44,13 @@ When set, the script will proceed to display all the possible conversion options
 
 The `CKPT → All` and `SafeTensors → All` options will convert your model to `Diffusers`, then `Diffusers` to `ORIGINAL`, `ORIGINAL 512x768`, `ORIGINAL 768x512`, and `SPLIT_EINSUM` — all in one go.
 
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224867327-f77ced52-0f83-4913-bd1f-01fc28811105.png"></p>
+<p align="center"><img width="800" src="images/3-menu-options.png"></p>
 
 All the steps will show a success or failure log message, including a visual and auditory system notification. In case you don't like the latter, you can change its behavior by going to "System Settings..." → "Notifications" → "Script Editor"; or by deleting all the lines in the script starting with `osascript`.
 
 <br>
-<p align="center"><img width="350" src="https://user-images.githubusercontent.com/101254295/224436457-c6c1ed0a-fcaa-4a4b-bb5d-c940a309f612.png"></p>
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/101254295/224867388-497a0fe1-2c3c-4fb0-a712-8aa79b30323e.png"></p>
+<p align="center"><img width="350" src="images/4-notification.png"></p>
+<p align="center"><img width="800" src="images/5-log-message.png"></p>
 
 ## Prerequisites
 
