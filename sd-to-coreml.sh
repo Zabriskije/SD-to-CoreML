@@ -249,7 +249,7 @@ while true; do
 						esac
 					done
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
@@ -277,7 +277,7 @@ while true; do
 					osascript -e 'display notification "Conversion to Diffusers completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to Diffusers completed in $(($time / 60))min and $(($time % 60))s${N}\n"
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
@@ -484,7 +484,7 @@ while true; do
 						esac
 					done
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
@@ -512,7 +512,7 @@ while true; do
 					osascript -e 'display notification "Conversion to Diffusers completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to Diffusers completed in $(($time / 60))min and $(($time % 60))s${N}\n"
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
@@ -545,7 +545,7 @@ while true; do
 					osascript -e 'display notification "Conversion to ORIGINAL completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to ORIGINAL completed in $(($time / 60))min and $(($time % 60))s${N}\n"
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
@@ -578,7 +578,7 @@ while true; do
 					osascript -e 'display notification "Conversion to ORIGINAL 512x768 completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to ORIGINAL 512x768 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
@@ -611,7 +611,7 @@ while true; do
 					osascript -e 'display notification "Conversion to ORIGINAL 768x512 completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to ORIGINAL 768x512 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
@@ -644,7 +644,7 @@ while true; do
 					osascript -e 'display notification "Conversion to SPLIT_EINSUM completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to SPLIT_EINSUM completed in $(($time / 60))min and $(($time % 60))s${N}\n"
 					
-					read -p "Press [Enter] to see the menu or [⌘.] to quit "
+					read -p "Press [Enter] to see the menu or [Control+C] to quit "
 					
 					break ;;
 				
