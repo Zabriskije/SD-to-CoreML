@@ -6,19 +6,18 @@
 
 ## Features
 
-- Works with both CKPT and SafeTensors file format
+- Works with both CKPT and SafeTensors files
 - Displays a log message and a system notification with status updates
 - If a conversion fails, it will attempt it every 30s until it's successful
 - Resume your conversions at any time by entering the same model name
 - Automatically deletes all unnecessary files once the conversion is done
 - When converting to `All`, asks whether to zip folders (useful for sharing purposes)
 - If zipped, asks whether to delete the model and its folders
-- Super simple, just set your model name and choose an option
 - Some easter eggs 👀
 
 ## Usage
 
-Before running: be sure to meet the [prerequisites](#prerequisites), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder path that needs to be adjusted. You'll find both at the start of the script:
+Before running: be sure to meet the [prerequisites](#prerequisites), place the script in the same folder as the model you want to convert, and open it with a code editor since there is two folder paths that need to be adjusted. You'll find both at the start of the script:
 
 <p align="center"><img width="800" src="images/1-script-paths.png"></p>
 
