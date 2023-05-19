@@ -105,7 +105,7 @@ The script assumes you have Homebrew, Wget, Xcode, and Miniconda (with the `ml-s
 
 #### File
 
-- `sd-to-coreml.sh: permission denied`: type `chmod -x `, drag the script into the Terminal window, and then press <kbd>Enter ⏎</kbd>
+- `sd-to-coreml.sh: permission denied`: type `chmod +x `, drag the script into the Terminal window, and then press <kbd>Enter ⏎</kbd>
 
 #### Miniconda
 
