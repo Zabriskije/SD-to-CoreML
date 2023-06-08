@@ -31,13 +31,13 @@ while true; do
 	printf '\33c\e[3J'
 	echo -e "${B}\nSD to Core ML script by ${R}φ Zabriskije${N}\n${B}\n"
 	read -p "Enter model name: " mname
-	
+
 	#######################################################
 	##                                                   ##
 	##                  Conversion menu                  ##
 	##                                                   ##
 	#######################################################
-	
+
 	PS3=$'\n'"Pick a number: "
 	while true; do
 		printf '\33c\e[3J'
@@ -45,23 +45,23 @@ while true; do
 		COLUMNS="0"; options=("CKPT → All" "CKPT → Diffusers" "SafeTensors → All" "SafeTensors → Diffusers" "Diffusers → ORIGINAL" "Diffusers → ORIGINAL 512x768" "Diffusers → ORIGINAL 768x512" "Diffusers → SPLIT_EINSUM" "Change model name") &&
 		select opt in "${options[@]}"; do
 			case $opt in
-				
+
 				#######################################################
 				##                                                   ##
 				##                    CKPT → All                     ##
 				##                                                   ##
 				#######################################################
-				
+
 				"CKPT → All")
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#               CKPT → All (Diffusers)                #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "\n${G}[1/5] Converting ${mname} to Diffusers...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
 						python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path ${mname}.ckpt --device cpu --extract_ema --dump_path ${mname}_diffusers
 					do
@@ -69,117 +69,117 @@ while true; do
 						echo -e "\n${R}[1/5] Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[1/5] Conversion of ${mname} to Diffusers completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#                CKPT → All (ORIGINAL)                #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[2/5] Converting ${mname} to ORIGINAL...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original
+						python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original && python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original
 					do
 						osascript -e 'display notification "[2/5] Conversion to ORIGINAL failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[2/5] Conversion of ${mname} to ORIGINAL failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original deleting...
 					mv deleting.../Resources deleting.../${mname}_original
 					mv deleting.../${mname}_original .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[2/5] Conversion of ${mname} to ORIGINAL completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#            CKPT → All (ORIGINAL 512x768)            #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[3/5] Converting ${mname} to ORIGINAL 512x768...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768 && python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768
 					do
 						osascript -e 'display notification "[3/5] Conversion to ORIGINAL 512x768 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[3/5] Conversion of ${mname} to ORIGINAL 512x768 failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original_512x768 deleting...
 					mv deleting.../Resources deleting.../${mname}_original_512x768
 					mv deleting.../${mname}_original_512x768 .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[3/5] Conversion of ${mname} to ORIGINAL 512x768 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#            CKPT → All (ORIGINAL 768x512)            #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[4/5] Converting ${mname} to ORIGINAL 768x512...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && 						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
 					do
 						osascript -e 'display notification "[4/5] Conversion to ORIGINAL 768x512 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[4/5] Conversion of ${mname} to ${R}ORIGINAL 768x512${R} failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original_768x512 deleting...
 					mv deleting.../Resources deleting.../${mname}_original_768x512
 					mv deleting.../${mname}_original_768x512 .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[4/5] Conversion of ${mname} to ORIGINAL 768x512 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#              CKPT → All (SPLIT_EINSUM)              #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[5/5] Converting ${mname} to SPLIT_EINSUM...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum
+						python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum && python -m python_coreml_stable_diffusion.torch2coreml --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum
 					do
 						osascript -e 'display notification "[5/5] Conversion to SPLIT_EINSUM failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[5/5] Conversion of ${mname} to ${R}SPLIT_EINSUM${R} failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_split-einsum deleting...
 					mv deleting.../Resources deleting.../${mname}_split-einsum
 					mv deleting.../${mname}_split-einsum .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[5/5] Conversion of ${mname} to SPLIT_EINSUM completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					echo -e "${G}All conversions completed${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#               CKPT → All (Zip files)                #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					while true; do
 						read -p "Do you want to zip your files? (y/n) " zip
 						case "$zip" in
@@ -201,11 +201,11 @@ while true; do
 								wait $SPIN_PID 2> /dev/null
 								printf "\e[?25h"
 								echo -ne "\r${G}Zipped   ${N}\n\n"
-								
+
 								# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 								#              CKPT → All (Delete files)              #
 								# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-								
+
 								while true; do
 									read -p "Do you want to delete the model and its folders? (y/n) " deletemfs
 									case "$deletemfs" in
@@ -238,7 +238,7 @@ while true; do
 										;;
 									esac
 								done
-								
+
 								break ;;
 							n|N) echo; break ;;
 							*)
@@ -248,22 +248,22 @@ while true; do
 							;;
 						esac
 					done
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##                 CKPT → Diffusers                  ##
 				##                                                   ##
 				#######################################################
-				
+
 				"CKPT → Diffusers")
 					echo -e "\n${G}Converting ${mname} to Diffusers...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
 						python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path ${mname}.ckpt --device cpu --extract_ema --dump_path ${mname}_diffusers
 					do
@@ -271,32 +271,32 @@ while true; do
 						echo -e "\n${R}Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					time=$SECONDS
-					
+
 					osascript -e 'display notification "Conversion to Diffusers completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to Diffusers completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##                 SafeTensors → All                 ##
 				##                                                   ##
 				#######################################################
-				
+
 				"SafeTensors → All")
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#            SafeTensors → All (Diffusers)            #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "\n${G}[1/5] Converting ${mname} to Diffusers...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
 						python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path ${mname}.safetensors --from_safetensors --device cpu --extract_ema --dump_path ${mname}_diffusers
 					do
@@ -304,117 +304,117 @@ while true; do
 						echo -e "\n${R}[1/5] Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[1/5] Conversion of ${mname} to Diffusers completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#            SafeTensors → All (ORIGINAL)             #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[2/5] Converting ${mname} to ORIGINAL...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original
+						python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original && python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original
 					do
 						osascript -e 'display notification "[2/5] Conversion to ORIGINAL failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[2/5] Conversion of ${mname} to ORIGINAL failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original deleting...
 					mv deleting.../Resources deleting.../${mname}_original
 					mv deleting.../${mname}_original .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[2/5] Conversion of ${mname} to ORIGINAL completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#        SafeTensors → All (ORIGINAL 512x768)         #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[3/5] Converting ${mname} to ORIGINAL 512x768...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768 && python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768
 					do
 						osascript -e 'display notification "[3/5] Conversion to ORIGINAL 512x768 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[3/5] Conversion of ${mname} to ORIGINAL 512x768 failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original_512x768 deleting...
 					mv deleting.../Resources deleting.../${mname}_original_512x768
 					mv deleting.../${mname}_original_512x768 .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[3/5] Conversion of ${mname} to ORIGINAL 512x768 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#        SafeTensors → All (ORIGINAL 768x512)         #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[4/5] Converting ${mname} to ORIGINAL 768x512...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && 						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
 					do
 						osascript -e 'display notification "[4/5] Conversion to ORIGINAL 768x512 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[4/5] Conversion of ${mname} to ${R}ORIGINAL 768x512${R} failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original_768x512 deleting...
 					mv deleting.../Resources deleting.../${mname}_original_768x512
 					mv deleting.../${mname}_original_768x512 .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[4/5] Conversion of ${mname} to ORIGINAL 768x512 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#          SafeTensors → All (SPLIT_EINSUM)           #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					echo -e "${G}[5/5] Converting ${mname} to SPLIT_EINSUM...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum
+						python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum && python -m python_coreml_stable_diffusion.torch2coreml --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum
 					do
 						osascript -e 'display notification "[5/5] Conversion to SPLIT_EINSUM failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[5/5] Conversion of ${mname} to ${R}SPLIT_EINSUM${R} failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_split-einsum deleting...
 					mv deleting.../Resources deleting.../${mname}_split-einsum
 					mv deleting.../${mname}_split-einsum .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					echo -e "\n${G}[5/5] Conversion of ${mname} to SPLIT_EINSUM completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					echo -e "${G}All conversions completed${N}\n"
-					
+
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 					#            SafeTensors → All (Zip files)            #
 					# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-					
+
 					while true; do
 						read -p "Do you want to zip your files? (y/n) " zip
 						case "$zip" in
@@ -436,11 +436,11 @@ while true; do
 								wait $SPIN_PID 2> /dev/null
 								printf "\e[?25h"
 								echo -ne "\r${G}Zipped   ${N}\n\n"
-								
+
 								# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
 								#          SafeTensors → All (Delete files)           #
 								# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ #
-								
+
 								while true; do
 									read -p "Do you want to delete the model and its folders? (y/n) " deletemfs
 									case "$deletemfs" in
@@ -473,7 +473,7 @@ while true; do
 										;;
 									esac
 								done
-								
+
 								break ;;
 							n|N) echo; break ;;
 							*)
@@ -483,22 +483,22 @@ while true; do
 							;;
 						esac
 					done
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##              SafeTensors → Diffusers              ##
 				##                                                   ##
 				#######################################################
-				
+
 				"SafeTensors → Diffusers")
 					echo -e "\n${G}Converting ${mname} to Diffusers...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
 						python convert_original_stable_diffusion_to_diffusers.py --checkpoint_path ${mname}.safetensors --from_safetensors --device cpu --extract_ema --dump_path ${mname}_diffusers
 					do
@@ -506,168 +506,168 @@ while true; do
 						echo -e "\n${R}Conversion of ${mname} to Diffusers failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					time=$SECONDS
-					
+
 					osascript -e 'display notification "Conversion to Diffusers completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to Diffusers completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##               Diffusers → ORIGINAL                ##
 				##                                                   ##
 				#######################################################
-				
+
 				"Diffusers → ORIGINAL")
 					echo -e "\n${G}Converting ${mname} to ORIGINAL...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original
+						python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original && python -m python_coreml_stable_diffusion.torch2coreml --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original
 					do
 						osascript -e 'display notification "Conversion to ORIGINAL failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}Conversion of ${mname} to ORIGINAL failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original deleting...
 					mv deleting.../Resources deleting.../${mname}_original
 					mv deleting.../${mname}_original .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					osascript -e 'display notification "Conversion to ORIGINAL completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to ORIGINAL completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##           Diffusers → ORIGINAL 512x768            ##
 				##                                                   ##
 				#######################################################
-				
+
 				"Diffusers → ORIGINAL 512x768")
 					echo -e "\n${G}Converting ${mname} to ORIGINAL 512x768...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768 && python -m python_coreml_stable_diffusion.torch2coreml --latent-w 64 --latent-h 96 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_512x768
 					do
 						osascript -e 'display notification "Conversion to ORIGINAL 512x768 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}Conversion of ${mname} to ORIGINAL 512x768 failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original_512x768 deleting...
 					mv deleting.../Resources deleting.../${mname}_original_512x768
 					mv deleting.../${mname}_original_512x768 .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					osascript -e 'display notification "Conversion to ORIGINAL 512x768 completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to ORIGINAL 512x768 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##           Diffusers → ORIGINAL 768x512            ##
 				##                                                   ##
 				#######################################################
-				
+
 				"Diffusers → ORIGINAL 768x512")
 					echo -e "\n${G}Converting ${mname} to ORIGINAL 768x512...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && 						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
 					do
 						osascript -e 'display notification "Conversion to ORIGINAL 768x512 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}Conversion of ${mname} to ${R}ORIGINAL 768x512${R} failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_original_768x512 deleting...
 					mv deleting.../Resources deleting.../${mname}_original_768x512
 					mv deleting.../${mname}_original_768x512 .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					osascript -e 'display notification "Conversion to ORIGINAL 768x512 completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to ORIGINAL 768x512 completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				######################################################
 				##                                                  ##
 				##             Diffusers → SPLIT_EINSUM             ##
 				##                                                  ##
 				######################################################
-				
+
 				"Diffusers → SPLIT_EINSUM")
 					echo -e "\n${G}Converting ${mname} to SPLIT_EINSUM...${N}\n"
-					
+
 					SECONDS=0
-					
+
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum
+						python -m python_coreml_stable_diffusion.torch2coreml --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum && python -m python_coreml_stable_diffusion.torch2coreml --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation SPLIT_EINSUM -o ${mname}_split-einsum
 					do
 						osascript -e 'display notification "Conversion to SPLIT_EINSUM failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}Conversion of ${mname} to ${R}SPLIT_EINSUM${R} failed. Trying again in 30s...${N}\n"
 						sleep 30
 					done
-					
+
 					mv ${mname}_split-einsum deleting...
 					mv deleting.../Resources deleting.../${mname}_split-einsum
 					mv deleting.../${mname}_split-einsum .
 					rm -rf deleting...
-					
+
 					time=$SECONDS
-					
+
 					osascript -e 'display notification "Conversion to SPLIT_EINSUM completed 🥳" with title "SD to Core ML" sound name "Funk"'
 					echo -e "\n${G}Conversion of ${mname} to SPLIT_EINSUM completed in $(($time / 60))min and $(($time % 60))s${N}\n"
-					
+
 					read -p "Press [Enter] to see the menu or [Control+C] to quit "
-					
+
 					break ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##                 Change model name                 ##
 				##                                                   ##
 				#######################################################
-				
+
 				"Change model name") break 2 ;;
-				
+
 				#######################################################
 				##                                                   ##
 				##                       WTF?                        ##
 				##                                                   ##
 				#######################################################
-				
+
 				*)
 					roll=$(($RANDOM % 8))
 					wtf=("That option is Coming Soon™" "Are you sure about that?" "Try again with, I don't know, maybe a number in the menu?" "I don't know what that is, and at this point, I'm too afraid to ask" "I know you're happy about the script, but please stop keysmashing" "¯\_(ツ)_/¯" "ಠಿ_ಠ" "ಠ_ಠ")
 					echo -e "\n${R}${wtf[$roll]}${N}"
 				;;
-				
+
 			esac
 		done
 	done
