@@ -6,6 +6,7 @@
 
 ## Features
 
+- ControlNet-ready
 - Works with both CKPT and SafeTensors files
 - Displays a log message and a system notification with status updates
 - If a conversion fails, it will attempt it every 30s until it's successful
@@ -13,7 +14,6 @@
 - Automatically deletes all unnecessary files once the conversion is done
 - When converting to `All`, asks whether to zip folders (useful for sharing purposes)
 - If zipped, asks whether to delete the model and its folders
-- ControlNet support already integrated
 - Some easter eggs 👀
 
 ## Usage
