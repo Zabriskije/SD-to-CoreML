@@ -133,7 +133,7 @@ while true; do
 					SECONDS=0
 
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && 						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
 					do
 						osascript -e 'display notification "[4/5] Conversion to ORIGINAL 768x512 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[4/5] Conversion of ${mname} to ${R}ORIGINAL 768x512${R} failed. Trying again in 30s...${N}\n"
@@ -368,7 +368,7 @@ while true; do
 					SECONDS=0
 
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && 						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
 					do
 						osascript -e 'display notification "[4/5] Conversion to ORIGINAL 768x512 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}[4/5] Conversion of ${mname} to ${R}ORIGINAL 768x512${R} failed. Trying again in 30s...${N}\n"
@@ -594,7 +594,7 @@ while true; do
 					SECONDS=0
 
 					until
-						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && 						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
+						python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-vae-decoder --convert-vae-encoder --convert-unet --convert-text-encoder --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512 && python -m python_coreml_stable_diffusion.torch2coreml --latent-w 96 --latent-h 64 --compute-unit CPU_AND_GPU --convert-unet --unet-support-controlnet --model-version ${mname}_diffusers --bundle-resources-for-swift-cli --attention-implementation ORIGINAL -o ${mname}_original_768x512
 					do
 						osascript -e 'display notification "Conversion to ORIGINAL 768x512 failed 😢 Trying again in 30s..." with title "SD to Core ML" sound name "Sosumi"'
 						echo -e "\n${R}Conversion of ${mname} to ${R}ORIGINAL 768x512${R} failed. Trying again in 30s...${N}\n"
