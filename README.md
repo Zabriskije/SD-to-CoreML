@@ -1,6 +1,6 @@
 <h1 align="center">SD to Core ML</h1>
 
-<p align="center">The neatest script for converting Stable Diffusion models to Core ML</p>
+<p align="center">The neatest script for converting Stable Diffusion 1.5 models to Core ML</p>
 
 <p align="center"><a href="#features">Features</a> • <a href="#usage">Usage</a> • <a href="#prerequisites">Prerequisites</a> • <a href="#troubleshooting">Troubleshooting</a></p>
 
